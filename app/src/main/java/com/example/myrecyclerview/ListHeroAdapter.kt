@@ -3,6 +3,7 @@ package com.example.myrecyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -14,12 +15,11 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>) :
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
         var tvDetail: TextView = itemView.findViewById(R.id.tv_item_detail)
-        var imgPhoto: TextView = itemView.findViewById(R.id.img_item_photo)
+        var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ListViewHolder {
-        val view: View =
-            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_hero, viewGroup, false)
+        val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_hero, viewGroup, false)
         return ListViewHolder(view)
     }
 
