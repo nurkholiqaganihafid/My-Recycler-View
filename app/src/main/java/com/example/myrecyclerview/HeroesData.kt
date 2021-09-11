@@ -32,16 +32,16 @@ object HeroesData {
 
 
     private val heroesImages = intArrayOf(
-        R.drawable.luffy,
-        R.drawable.zoro,
-        R.drawable.nami,
-        R.drawable.usop,
-        R.drawable.sanji,
-        R.drawable.chopper,
-        R.drawable.robin,
-        R.drawable.franky,
-        R.drawable.brook,
-        R.drawable.jinbei
+        R.drawable.monkey_d_luffy,
+        R.drawable.img_roronoa_zoro,
+        R.drawable.img_nami,
+        R.drawable.img_usopp,
+        R.drawable.img_sanji,
+        R.drawable.img_chopper,
+        R.drawable.img_robin,
+        R.drawable.img_franky,
+        R.drawable.img_brook,
+        R.drawable.img_jinbe
     )
 
 
