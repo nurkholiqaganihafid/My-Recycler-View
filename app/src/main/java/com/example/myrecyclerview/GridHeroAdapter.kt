@@ -23,7 +23,7 @@ class GridHeroAdapter(val listHero: ArrayList<Hero>) :
 
     override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
         Glide.with(holder.itemView.context)
-            .load(listHero[position].photo)
+            .load(listHero[position].gridPhoto)
             .apply(RequestOptions().override(350, 550))
             .into(holder.imgPhoto)
     }

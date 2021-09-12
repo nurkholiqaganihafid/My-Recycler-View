@@ -44,6 +44,19 @@ object HeroesData {
         R.drawable.img_jinbe
     )
 
+    private val gridHeroesImage = intArrayOf(
+        R.drawable.luffy,
+        R.drawable.zoro,
+        R.drawable.nami,
+        R.drawable.usop,
+        R.drawable.sanji,
+        R.drawable.chopper,
+        R.drawable.robin,
+        R.drawable.franky,
+        R.drawable.brook,
+        R.drawable.jinbei,
+    )
+
 
     val listData: ArrayList<Hero>
         get() {
@@ -53,6 +66,7 @@ object HeroesData {
                 hero.name = heroNames[position]
                 hero.detail = heroDetails[position]
                 hero.photo = heroesImages[position]
+                hero.gridPhoto = gridHeroesImage[position]
                 list.add(hero)
             }
             return list
