@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var rvHeroes: RecyclerView
-    private var list: ArrayList<Hero> = arrayListOf()
+    private var list: ArrayList<Pirate> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,14 +22,14 @@ class MainActivity : AppCompatActivity() {
         rvHeroes = findViewById(R.id.rv_heroes)
         rvHeroes.setHasFixedSize(true)
 
-        list.addAll(HeroesData.listData)
+        list.addAll(PiratesData.listData)
         showRecyclerList()
 
     }
 
     private fun showRecyclerList() {
         rvHeroes.layoutManager = LinearLayoutManager(this)
-        val listHeroAdapter = ListHeroAdapter(list)
+        val listHeroAdapter = ListPirateAdapter(list)
         rvHeroes.adapter = listHeroAdapter
     }
 
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     // Menambahkan metode grid
     private fun showRecyclerGrid() {
         rvHeroes.layoutManager = GridLayoutManager(this, 2)
-        val gridHeroAdapter = GridHeroAdapter(list)
+        val gridHeroAdapter = GridPirateAdapter(list)
         rvHeroes.adapter = gridHeroAdapter
     }
 

@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class GridHeroAdapter(val listHero: ArrayList<Hero>) :
-    RecyclerView.Adapter<GridHeroAdapter.GridViewHolder>() {
+class GridPirateAdapter(val listHero: ArrayList<Pirate>) :
+    RecyclerView.Adapter<GridPirateAdapter.GridViewHolder>() {
 
     inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_hero_photo)
@@ -17,7 +17,7 @@ class GridHeroAdapter(val listHero: ArrayList<Hero>) :
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): GridViewHolder {
         val view: View = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.item_grid_hero, viewGroup, false)
+            .inflate(R.layout.item_grid_pirate, viewGroup, false)
         return GridViewHolder(view)
     }
 

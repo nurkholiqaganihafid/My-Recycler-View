@@ -5,4 +5,7 @@
     <string name="list">List</string>
     <string name="grid">Grid</string>
     <string name="with_cardview">with CardView</string>
+    <string name="item_detail">Detail</string>
+    <string name="favotite">Favotite</string>
+    <string name="share">Share</string>
 </resources>

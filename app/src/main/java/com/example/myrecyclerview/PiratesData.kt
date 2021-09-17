@@ -1,7 +1,7 @@
 package com.example.myrecyclerview
 
 // Koleksi data yang ingin ditampilkan
-object HeroesData {
+object PiratesData {
 
     private val heroNames = arrayOf(
         "Monkey D. Luffy",
@@ -58,11 +58,11 @@ object HeroesData {
     )
 
 
-    val listData: ArrayList<Hero>
+    val listData: ArrayList<Pirate>
         get() {
-            val list = arrayListOf<Hero>()
+            val list = arrayListOf<Pirate>()
             for (position in heroNames.indices) {
-                val hero = Hero()
+                val hero = Pirate()
                 hero.name = heroNames[position]
                 hero.detail = heroDetails[position]
                 hero.photo = heroesImages[position]

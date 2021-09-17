@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class ListHeroAdapter(private val listHero: ArrayList<Hero>) :
-    RecyclerView.Adapter<ListHeroAdapter.ListViewHolder>() {
+class ListPirateAdapter(private val listHero: ArrayList<Pirate>) :
+    RecyclerView.Adapter<ListPirateAdapter.ListViewHolder>() {
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
@@ -19,7 +19,7 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>) :
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ListViewHolder {
-        val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_hero, viewGroup, false)
+        val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_pirate, viewGroup, false)
         return ListViewHolder(view)
     }
 
