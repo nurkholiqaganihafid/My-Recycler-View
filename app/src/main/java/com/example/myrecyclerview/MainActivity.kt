@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
-    private fun setActionBarTitle(title: String){
+    private fun setActionBarTitle(title: String) {
         supportActionBar?.title = title
     }
 
@@ -72,6 +73,13 @@ class MainActivity : AppCompatActivity() {
         rvHeroes.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListPirateAdapter(list)
         rvHeroes.adapter = listHeroAdapter
+
+        listHeroAdapter.setOnItemClickCallback(object : ListPirateAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Pirate){
+                showSelectedHero(data)
+            }
+        })
+
     }
 
     // Menambahkan metode grid
@@ -81,10 +89,14 @@ class MainActivity : AppCompatActivity() {
         rvHeroes.adapter = gridHeroAdapter
     }
 
-    private fun showRecyclerView(){
+    private fun showRecyclerView() {
         rvHeroes.layoutManager = LinearLayoutManager(this)
         val cardViewPirateAdapter = CardViewPirateAdapter(list)
         rvHeroes.adapter = cardViewPirateAdapter
+    }
+
+    private fun showSelectedHero(hero: Pirate) {
+        Toast.makeText(this, "Kamu Memilih " + hero.name, Toast.LENGTH_SHORT).show()
     }
 
 }

@@ -12,6 +12,12 @@ import com.bumptech.glide.request.RequestOptions
 class ListPirateAdapter(private val listHero: ArrayList<Pirate>) :
     RecyclerView.Adapter<ListPirateAdapter.ListViewHolder>() {
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
         var tvDetail: TextView = itemView.findViewById(R.id.tv_item_detail)
@@ -19,7 +25,8 @@ class ListPirateAdapter(private val listHero: ArrayList<Pirate>) :
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ListViewHolder {
-        val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_pirate, viewGroup, false)
+        val view: View = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.item_row_pirate, viewGroup, false)
         return ListViewHolder(view)
     }
 
@@ -33,9 +40,16 @@ class ListPirateAdapter(private val listHero: ArrayList<Pirate>) :
 
         holder.tvName.text = hero.name
         holder.tvDetail.text = hero.detail
+
+        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listHero[holder.adapterPosition]) }
     }
 
     override fun getItemCount(): Int {
         return listHero.size
     }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Pirate)
+    }
+
 }
