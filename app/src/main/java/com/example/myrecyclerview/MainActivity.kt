@@ -27,11 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun showRecyclerList() {
-        rvHeroes.layoutManager = LinearLayoutManager(this)
-        val listHeroAdapter = ListPirateAdapter(list)
-        rvHeroes.adapter = listHeroAdapter
-    }
 
     // memanggil fasilitas menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -56,10 +51,16 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.action_cardview -> {
-
+                showRecyclerView()
             }
         }
 
+    }
+
+    private fun showRecyclerList() {
+        rvHeroes.layoutManager = LinearLayoutManager(this)
+        val listHeroAdapter = ListPirateAdapter(list)
+        rvHeroes.adapter = listHeroAdapter
     }
 
     // Menambahkan metode grid
@@ -67,6 +68,12 @@ class MainActivity : AppCompatActivity() {
         rvHeroes.layoutManager = GridLayoutManager(this, 2)
         val gridHeroAdapter = GridPirateAdapter(list)
         rvHeroes.adapter = gridHeroAdapter
+    }
+
+    private fun showRecyclerView(){
+        rvHeroes.layoutManager = LinearLayoutManager(this)
+        val cardViewPirateAdapter = CardViewPirateAdapter(list)
+        rvHeroes.adapter = cardViewPirateAdapter
     }
 
 }
