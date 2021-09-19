@@ -10,6 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
+    private fun setActionBarTitle(title: String){
+        supportActionBar?.title = title
+    }
+
+    private var title: String = "Mode List"
+
     private lateinit var rvHeroes: RecyclerView
     private var list: ArrayList<Pirate> = arrayListOf()
 
@@ -17,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.title = "Straw Hat Pirates"
+//        supportActionBar?.title = "Straw Hat Pirates"
+        setActionBarTitle(title)
 
         rvHeroes = findViewById(R.id.rv_heroes)
         rvHeroes.setHasFixedSize(true)
@@ -39,21 +46,25 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    // pindah menu action
+    // pindah menu action / Metode setMode
     private fun setMode(selectedMode: Int) {
         when (selectedMode) {
             R.id.action_list -> {
+                title = "Mode List"
                 showRecyclerList()
             }
 
             R.id.action_grid -> {
+                title = "Mode Grid"
                 showRecyclerGrid()
             }
 
             R.id.action_cardview -> {
+                title = "Mode CardView"
                 showRecyclerView()
             }
         }
+        setActionBarTitle(title)
 
     }
 
