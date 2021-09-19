@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         rvHeroes.adapter = listHeroAdapter
 
         listHeroAdapter.setOnItemClickCallback(object : ListPirateAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: Pirate){
+            override fun onItemClicked(data: Pirate) {
                 showSelectedHero(data)
             }
         })
@@ -87,6 +87,14 @@ class MainActivity : AppCompatActivity() {
         rvHeroes.layoutManager = GridLayoutManager(this, 2)
         val gridHeroAdapter = GridPirateAdapter(list)
         rvHeroes.adapter = gridHeroAdapter
+
+
+        gridHeroAdapter.setOnItemClickCallback(object : GridPirateAdapter.OnItemClickCallback{
+            override fun onItemClicked(data: Pirate) {
+                showSelectedHero(data)
+            }
+        })
+
     }
 
     private fun showRecyclerView() {

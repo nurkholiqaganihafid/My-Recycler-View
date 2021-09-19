@@ -11,6 +11,12 @@ import com.bumptech.glide.request.RequestOptions
 class GridPirateAdapter(val listHero: ArrayList<Pirate>) :
     RecyclerView.Adapter<GridPirateAdapter.GridViewHolder>() {
 
+    private lateinit var onItemClickCalback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCalback = onItemClickCallback
+    }
+
     inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_hero_photo)
     }
@@ -26,10 +32,16 @@ class GridPirateAdapter(val listHero: ArrayList<Pirate>) :
             .load(listHero[position].gridPhoto)
             .apply(RequestOptions().override(350, 550))
             .into(holder.imgPhoto)
+
+        holder.itemView.setOnClickListener { onItemClickCalback.onItemClicked(listHero[holder.adapterPosition]) }
     }
 
     override fun getItemCount(): Int {
         return listHero.size
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Pirate)
     }
 
 }
